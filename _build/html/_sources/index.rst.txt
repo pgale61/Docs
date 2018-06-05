@@ -1,4 +1,4 @@
-Scalr's documentation
+Scalr's documentation!
 ======================
 
 .. toctree::
