@@ -1,4 +1,4 @@
-Scalar Scopes
+Scalr Scopes
 ==============
 
 About
