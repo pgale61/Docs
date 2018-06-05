@@ -12,3 +12,4 @@ Scalr's documentation!
    getting_started/getting_started
    best_practices/best_practices
    tutorials/tutorials
+   scalr/scalr
