@@ -5,5 +5,4 @@ Scalr's documentation
    :maxdepth: 2
 
    installation/installation
-   
-
+   concepts/concepts
