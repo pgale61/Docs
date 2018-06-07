@@ -3,6 +3,7 @@ Admin Guide
 
 .. toctree::
    :maxdepth: 2
+   :caption: Installation, Maintenance & Extensions
 
    admin_guide/installation/scalr_server_architecture
    admin_guide/installation/scalr_server_installation
