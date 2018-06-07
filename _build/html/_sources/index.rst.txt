@@ -5,6 +5,7 @@ Scalr's documentation!
    :maxdepth: 2
 
    installation/installation
+   installation/admin_integrations
    concepts/concepts
    clouds/clouds
    integrations/integrations
