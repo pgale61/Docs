@@ -1,4 +1,4 @@
-Power User Concepts
+Concepts
 ==========================
 
 .. toctree::

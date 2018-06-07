@@ -1,4 +1,4 @@
-Power User Getting Started
+Getting Started
 ==========================
 
 .. toctree::
