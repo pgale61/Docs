@@ -1,4 +1,4 @@
-Install Guide
+Admin Guide
 =============
 
 .. toctree::

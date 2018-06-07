@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Scalr Server Install &mdash; Scalr 0.01 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Scalr
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../concepts/concepts.html">Scalr Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../clouds/clouds.html">Supported Clouds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../integrations/integrations.html">Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_cli/api_cli.html">API &amp; CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/getting_started.html">Getting Started with Scalr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../best_practices/best_practices.html">Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scalr/scalr.html">Scalr</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Scalr</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Scalr Server Install</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/admin/installation/scalr_server_installation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="scalr-server-install">
+<h1>Scalr Server Install<a class="headerlink" href="#scalr-server-install" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Scalr download token</li>
+<li>Scalr license file</li>
+</ul>
+</div>
+<div class="section" id="for-deb-based-linux-operating-systems">
+<h2>For DEB-based Linux operating systems<a class="headerlink" href="#for-deb-based-linux-operating-systems" title="Permalink to this headline">¶</a></h2>
+<p>Get the scalr-server package:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl -s https://&lt;token&gt;:@packagecloud.io/install/repositories/scalr/scalr-server-ee/script.deb.sh <span class="p">|</span> sudo bash
+</pre></div>
+</div>
+<p>Install the package:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>apt-get install scalr-server
+</pre></div>
+</div>
+<p>Run the following on only one of the servers when prompted:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>scalr-server-wizard
+</pre></div>
+</div>
+<p>The step above should have done two things, created the /etc/scalr-server directory and the scalr-server-secrets.json file.</p>
+<p>Please create the /etc/scalr-server directory on the remaining servers and copy the scalr-server-secrets.json file as well as the license.json file to ALL servers if you haven’t done so already.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir /etc/scalr-server
+<span class="c1">##license.json file should be pasted in the following location on each server:##</span>
+vi /etc/scalr-server/license.json
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1">##scalr-server-secrets.json should be pasted in the following location on each server:##</span>
+vi /etc/scalr-server/scalr-server-secrets.json
+</pre></div>
+</div>
+<p>Create the scalr-server.rb and scalr-server-local.rb configuration file on each server:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Click <a class="reference external" href="https://github.com/scalr-tutorials/scalr-server-configuration/tree/master/6-server-ha/">here</a> for examples of the scalr-server.rb and scalr-server-local.rb.
+In the scalr-server.rb, replace lines 10-16 with the IP or hostname of your actual servers.
+When placing the scalr-server-local.rb files on their respective servers, make sure they are renamed to scalr-server-local.rb, not the name you see in the Github link. When placing the scalr-server-local.rb on the MySQL Master, be sure to update the following line with the actual slave IP:
+mysql[:repl_allow_connections_from] = ‘SLAVE-IP’</p>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vi /etc/scalr-server/scalr-server.rb
+vi /etc/scalr-server/scalr-server-local.rb
+</pre></div>
+</div>
+<p>At this point there should be four files in the /etc/scalr-server directory on each server. The license.json, scalr-server.rb and scalr-server-secrets.json files should be exactly the same on all of the servers, the scalr-server-local.rb file should be the only file that is different from server to server:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>user@scalr:/etc/scalr-server# ls
+license.json  scalr-server-local.rb  scalr-server.rb  scalr-server-secrets.json
+</pre></div>
+</div>
+<p>Reconfigure Scalr on the DB node:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>/opt/scalr-server/bin/scalr-server-ctl reconfigure
+</pre></div>
+</div>
+<p>Reconfigure Scalr on the worker server next:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>/opt/scalr-server/bin/scalr-server-ctl reconfigure
+</pre></div>
+</div>
+<p>Reconfigure Scalr on the remaining nodes:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>/opt/scalr-server/bin/scalr-server-ctl reconfigure
+</pre></div>
+</div>
+<p>You should now be able to log into Scalr by putting the hostname or IP address that is listed as your endpoint in the scalr-server.rb into a browser. To log in the first time, please find the admin password in the scalr-server-secrets.json file.</p>
+</div>
+<div class="section" id="for-rpm-based-linux-operating-systems">
+<h2>For RPM-based Linux operating systems<a class="headerlink" href="#for-rpm-based-linux-operating-systems" title="Permalink to this headline">¶</a></h2>
+<p>Get the scalr-server package:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl -s https://&lt;token&gt;:@packagecloud.io/install/repositories/scalr/scalr-server-ee/script.rpm.sh <span class="p">|</span> sudo bash
+</pre></div>
+</div>
+<p>Install the package:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>yum install scalr-server
+</pre></div>
+</div>
+<p>Run the following on only one of the servers when prompted:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>scalr-server-wizard
+</pre></div>
+</div>
+<p>The step above should have done two things, created the /etc/scalr-server directory and the scalr-server-secrets.json file.</p>
+<p>Please create the /etc/scalr-server directory on the remaining servers and copy the scalr-server-secrets.json file as well as the license.json file to ALL servers if you haven’t done so already.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir /etc/scalr-server
+<span class="c1">##license.json file should be pasted in the following location on each server:##</span>
+vi /etc/scalr-server/license.json
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1">##scalr-server-secrets.json should be pasted in the following location on each server:##</span>
+vi /etc/scalr-server/scalr-server-secrets.json
+</pre></div>
+</div>
+<p>Create the scalr-server.rb and scalr-server-local.rb configuration file on each server:</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Click <a class="reference external" href="https://github.com/scalr-tutorials/scalr-server-configuration/tree/master/6-server-ha/">here</a> for examples of the scalr-server.rb and scalr-server-local.rb.
+In the scalr-server.rb, replace lines 10-16 with the IP or hostname of your actual servers.
+When placing the scalr-server-local.rb files on their respective servers, make sure they are renamed to scalr-server-local.rb, not the name you see in the Github link. When placing the scalr-server-local.rb on the MySQL Master, be sure to update the following line with the actual slave IP:
+mysql[:repl_allow_connections_from] = ‘SLAVE-IP’</p>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vi /etc/scalr-server/scalr-server.rb
+vi /etc/scalr-server/scalr-server-local.rb
+</pre></div>
+</div>
+<p>At this point there should be four files in the /etc/scalr-server directory on each server. The license.json, scalr-server.rb and scalr-server-secrets.json files should be exactly the same on all of the servers, the scalr-server-local.rb file should be the only file that is different from server to server:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>user@scalr:/etc/scalr-server# ls
+license.json  scalr-server-local.rb  scalr-server.rb  scalr-server-secrets.json
+</pre></div>
+</div>
+<p>Reconfigure Scalr on the DB node:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>/opt/scalr-server/bin/scalr-server-ctl reconfigure
+</pre></div>
+</div>
+<p>Reconfigure Scalr on the worker server next:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>/opt/scalr-server/bin/scalr-server-ctl reconfigure
+</pre></div>
+</div>
+<p>Reconfigure Scalr on the remaining nodes:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>/opt/scalr-server/bin/scalr-server-ctl reconfigure
+</pre></div>
+</div>
+<p>You should now be able to log into Scalr by putting the hostname or IP address that is listed as your endpoint in the scalr-server.rb into a browser. To log in the first time, please find the admin password in the scalr-server-secrets.json file.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, scalr_team.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.01',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

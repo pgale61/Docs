@@ -4,8 +4,7 @@ Scalr's documentation!
 .. toctree::
    :maxdepth: 2
 
-   installation/installation
-   installation/admin_integrations
+   admin/installation
    concepts/concepts
    clouds/clouds
    integrations/integrations

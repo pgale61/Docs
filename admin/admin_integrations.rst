@@ -1,5 +1,5 @@
-Install Guide
-=============
+Scalr Extensions
+================
 
 .. toctree::
    :maxdepth: 2
