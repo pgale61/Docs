@@ -3,7 +3,7 @@ Scalr's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Installation, Maintenance & Extensions
+   :caption: Admin Guide
 
    install_guide/index
    extensions/index

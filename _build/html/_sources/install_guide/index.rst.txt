@@ -1,5 +1,5 @@
-Admin Guide
-=============
+Installation & Upgrades
+=======================
 
 .. toctree::
    :maxdepth: 2
